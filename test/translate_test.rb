@@ -39,7 +39,7 @@ class TranslateTest < Minitest::Test
 
   def test_can_translate_from_morse_to_eng
     assert_equal "hello world",
-      @translator.morse_to_eng(".... . .-.. .-.. --- .-- --- .-. .-.. -..")
+      @translator.morse_to_eng(".... . .-.. .-.. ---  .-- --- .-. .-.. -..")
   end
 
 end
