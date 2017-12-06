@@ -52,8 +52,22 @@ class Translate
     morse_phrase.join
   end
 
+  def morse_to_eng(phrase)
+    phrase = phrase.split(" ")
+    eng_phrase = phrase.map do |morse|
+      @morse_dict.key(morse)
+      require 'pry'; binding.pry
+    end
+    eng_phrase.join
+  end
+
+  def from_file(file)
+    text = File.read(p (Dir.pwd + "/lib/" + file))
+    eng_to_morse(text)
+  end
+
 
 end
 
 translator = Translate.new
-p translator.eng_to_morse("hello world")
+p translator.morse_to_eng("......-...-..--- .-----.-..-..-..")

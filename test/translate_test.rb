@@ -31,8 +31,15 @@ class TranslateTest < Minitest::Test
       @translator.eng_to_morse("There are 3 ships")
   end
 
-  # $ translator.eng_to_morse("Hello World")
-  # => "......-...-..--- .-----.-..-..-.."
-  # $ translator.eng_to_morse("There are 3 ships")
-  # => "-......-.. .-.-.. ...-- ..........--...."
+
+  def test_can_translate_from_a_file
+    assert_equal "......-...-..--- .-----.-..-..-..",
+      @translator.from_file("monkey.txt")
+  end
+
+  def test_can_translate_from_morse_to_eng
+    assert_equal "hello world",
+      @translator.morse_to_eng(".... . .-.. .-.. --- .-- --- .-. .-.. -..")
+  end
+
 end
